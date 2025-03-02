@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .sign-in-container {
+            background-color: #fff;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .sign-in-container h2 {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: 0.3s ease-in-out;
+        }
+
+        .input-field:focus {
+            border-color: #4CAF50;
+            background-color: #f1fdf4;
+            outline: none;
+        }
+
+        .input-field::placeholder {
+            color: #aaa; /* Light grey color for placeholder */
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            margin-top: 12px;
+            display: inline-block;
+            font-weight: normal;
+        }
+
+        .help-text {
+            font-size: 16px;
+            color: #555;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .help-text a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+
+        .container-header {
+            margin-bottom: 25px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sign-in-container">
+        <h2>Sign In to Your Account</h2>
+        <p class="container-header">Welcome back! Please sign in to continue.</p>
+        <form action="signin.html">
+            <input type="email" class="input-field" placeholder="Username" required><br>
+            <input type="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="button">Sign In</button>
+        </form>
+
+        <div class="help-text">
+            <p>If you're new here, <a href="signup.html">create a new account</a> and join our community.</p>
+            <p class="forgot-password"><a href="forgot-password.html">Forgot your password?</a> No worries, we’ve got you covered.</p>
+        </div>
+
+        <div class="footer">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.input-field');
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                if (this.placeholder) {
+                    this.placeholder = '';
+                }
+            });
+
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.placeholder = this.getAttribute('data-placeholder');
+                }
+            });
+
+            // Set initial placeholder
+            input.setAttribute('data-placeholder', input.placeholder);
+        });
+    </script>
+</body>
+
+</html>
